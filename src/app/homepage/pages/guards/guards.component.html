@@ -1,5 +1,5 @@
 <div class="content">
-   <h3>Guards</h3>
+   <h3>가드</h3>
    <p>
      A guard is a class annotated with the <code>@Injectable()</code> decorator. The guard should implement the <code>CanActivate</code> interface.
    </p>
@@ -16,10 +16,10 @@
    <blockquote class="info">
       <strong>Hint</strong> Guards are executed <strong>after</strong> each middleware, but <strong>before</strong> any pipe.
     </blockquote>
-    <h4>Authorization guard</h4>
+    <h4>인증 가드</h4>
     <p>
       One of the best guards use-cases is the <strong>authentication</strong> logic because specific routes should be available only when the caller has sufficient permissions.
-      The <code>AuthGuard</code> that we have a plan to create is going to sequentially extract and validate the token sent in request headers. 
+      The <code>AuthGuard</code> that we have a plan to create is going to sequentially extract and validate the token sent in request headers.
     </p>
     <span class="filename">
       {{ 'auth.guard' | extension: authGuardT.isJsActive }}
@@ -41,7 +41,7 @@
       The <code>ExecutionContext</code> inherits from <code>ArgumentsHost</code> (first mention <a routerLink="/exception-filters">here</a>).
       The
       <code>ArgumentsHost</code> is a wrapper around arguments that have been passed to the
-      <strong>original</strong> handler, and it contains different arguments array under the hood based on the type of the application. 
+      <strong>original</strong> handler, and it contains different arguments array under the hood based on the type of the application.
     </p>
     <pre><code class="language-typescript">{{ argumentsHost }}</code></pre>
     <p>
@@ -63,7 +63,7 @@
       Using other words, if the user points to <code>create()</code> method that is defined and registered within <code>CatsController</code>,
       the <code>getHandler()</code> will return a reference to the <code>create()</code> method and <code>getClass()</code> in this case, will simply return a <code>CatsController</code> <strong>type</strong> (not instance).
     </p>
-    <h4>Role-based authentication</h4>
+    <h4>역할 기반 인증</h4>
     <p>
       A little bit more detailed example is a <code>RolesGuard</code>. This guard permits access only to users with a specific role.
       We are gonna start with a basic guard template:
@@ -118,7 +118,7 @@
       <strong>Hint</strong> The alternative option is to use an <a routerLink="/execution-context">execution context</a> feature.
       Also, <code>useClass</code> is not the only way of dealing with custom providers registration. Learn more <a routerLink="/fundamentals/dependency-injection">here</a>.
     </blockquote>
-   <h4>Reflector</h4>
+   <h4>리플렉터</h4>
    <p>
       The guard is working now, but we're still not taking advantage of the most important guard features, being the <strong>execution context</strong>.
    </p>
