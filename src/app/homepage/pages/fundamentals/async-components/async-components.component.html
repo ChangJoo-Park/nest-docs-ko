@@ -1,5 +1,5 @@
 <div class="content">
-  <h3>Asynchronous providers</h3>
+  <h3>비동기 프로바이더</h3>
   <p>
     When the application start has to be delayed until some <strong>asynchronous tasks</strong> will be finished, for example, until the connection with the database will be established, you should consider using asynchronous providers.
     In order to create an <code>async</code> provider, we use the <code>useFactory</code>. The factory has to return a <code>Promise</code> (thus <code>async</code> functions fit as well).
@@ -13,7 +13,7 @@
     Each class that depends on the asynchronous provider will be instantiated once the async provider is <strong>already resolved</strong>.
   </p>
   <p>
-    The above example is for demonstration purposes. 
+    The above example is for demonstration purposes.
     If you're looking for more detailed one, <a routerLink="/recipes/sql-typeorm">see here</a>.
   </p>
 </div>
