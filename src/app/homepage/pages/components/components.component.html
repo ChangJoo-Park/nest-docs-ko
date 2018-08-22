@@ -1,5 +1,5 @@
 <div class="content">
-   <h3>Providers</h3>
+   <h3>프로바이더</h3>
    <p>
     Basically, almost everything may be considered as a provider – service, repository, factory, helper, and so on. All of them can <strong>inject</strong> dependencies through <code>constructor</code>, meaning, they can create various relationships with each other. But in fact, a provider is nothing else than just a simple class annotated with an <code>@Injectable()</code> decorator.
    </p>
@@ -45,7 +45,7 @@
     Don't be afraid of the <code>private readonly</code> shortened syntax.
     It means that we've created and initialized the <code>catsService</code> member immedietely in the same location.
   </p>
-  <h4>Dependency injection</h4>
+  <h4>의존성 주입</h4>
   <p>
     Nest is built around the strong design pattern commonly known as <strong>Dependency injection</strong>.
     We recommend to read a great article about this concept in the official <a href="https://angular.io/guide/dependency-injection" target="blank">Angular</a> documentation.
@@ -55,11 +55,11 @@
     to your controller's constructor:
   </p>
   <pre><code class="language-typescript">{{ constructorSyntax }}</code></pre>
-  <h4>Custom providers</h4>
+  <h4>사용자 정의 프로바이더</h4>
   <p>
     An inversion of control container, that Nest makes use of to resolve relationships between providers, is far more powerful than described above. The <code>@Injectable()</code> decorator is only a tip of an iceberg, not strictly required to define providers. Instead, you can use plain values, classes, either asynchronous or synchronous factories. Look <a routerLink="/fundamentals/dependency-injection">here</a> to find more examples.
   </p>
-  <h4>Last step</h4>
+  <h4>마지막으로</h4>
   <p>
     The last thing is to tell the module that something called <code>CatsService</code> truly exists.
     We do this by editing our module file - <code>app.module.ts</code>, and put the service into the <code>providers</code> array of the <code>@Module()</code> decorator.
