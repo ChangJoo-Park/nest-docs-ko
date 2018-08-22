@@ -1,22 +1,22 @@
 <div class="content">
-   <h3>프로바이더</h3>
-   <p>
-    Basically, almost everything may be considered as a provider – service, repository, factory, helper, and so on. All of them can <strong>inject</strong> dependencies through <code>constructor</code>, meaning, they can create various relationships with each other. But in fact, a provider is nothing else than just a simple class annotated with an <code>@Injectable()</code> decorator.
-   </p>
-   <figure><img src="/assets/Components_1.png" /></figure>
-   <p>
-      In the previous chapter, we have built a simple <code>CatsController</code>.
-   </p>
-   <p>
-     The controllers shall handle HTTP requests and delegate more complex tasks to the <strong>services</strong>.
-     The providers are plain JavaScript classes with a <code>@Injectable()</code> decorator on top of them.
-   </p>
-   <blockquote class="info">
-    <strong>Hint</strong> Since Nest enables the possibility to design and organize the dependencies in a more OO-way, we strongly recommend
-    following the <strong>SOLID</strong> principles.
+  <h3>프로바이더</h3>
+  <p>
+    기본적으로, 거의 모든 것이 공급자 - 서비스, 저장소, 공장, 도우미 등으로 간주 될 수 있습니다. 이들 모두는 <code>constructor</code> 통해 의존성을 <strong>주입</strong>
+    할 수 있습니다. 즉, 서로간에 다양한 관계를 만들 수 있습니다. 그러나 실제로 공급자는 <code>@Injectable()</code> 데코레이터로 주석이 달린 단순한 클래스입니다.
+  </p>
+  <figure><img src="/assets/Components_1.png"></figure>
+  <p>
+    이전 장에서는 간단한 <code>CatsController</code> .
+  </p>
+  <p>
+    컨트롤러는 HTTP 요청을 처리하고 더 복잡한 작업을 <strong>서비스에</strong> 위임해야 합니다. 공급자는 <code>@Injectable()</code> 데코레이터가있는 일반 JavaScript
+    클래스입니다.
+  </p>
+  <blockquote class="info">
+    <strong>힌트</strong> Nest는 더 많은 OO 방식으로 의존성을 설계하고 구성 할 수있는 가능성을 제공하므로 <strong>솔리드</strong> 원칙을 따르는 것이 좋습니다.
   </blockquote>
   <p>
-    Let's create a simple <code>CatsService</code> provider:
+    간단한 <code>CatsService</code> 프로바이더를 만듭니다.
   </p>
   <span class="filename">
     {{ 'cats.service' | extension: catsServiceT.isJsActive }}
@@ -25,14 +25,15 @@
   <pre [class.hide]="catsServiceT.isJsActive"><code class="language-typescript">{{ catsService }}</code></pre>
   <pre [class.hide]="!catsServiceT.isJsActive"><code class="language-typescript">{{ catsServiceJs }}</code></pre>
   <p>
-    Here's a <code>CatsService</code>, a basic class with one property and two methods.
-    The only new trait is that it uses the <code>@Injectable()</code> decorator. The <code>@Injectable()</code> attaches the metadata, thereby Nest knows that this class is a Nest provider.
+    다음은 <code>CatsService</code> 입니다. 하나의 속성과 두 가지 메소드가있는 기본 클래스입니다. 유일한 새로운 특성은 <code>@Injectable()</code> 데코레이터를 사용한다는
+    것입니다. <code>@Injectable()</code> 은 메타 데이터를 첨부하므로 Nest는이 클래스가 Nest 공급자임을 알게됩니다.
   </p>
   <blockquote class="info">
-    <strong>Notice</strong> There's a <code>Cat</code> interface used above. We didn't mention it because the schema is exactly same as in the <code>CreateCatDto</code> class which we have created in the previous chapter.
+    <strong>Notice</strong> 위에 사용 된 <code>Cat</code> 인터페이스가 있습니다. 스키마는 이전 장에서 작성한 <code>CreateCatDto</code> 클래스와 완전히 동일하기
+    때문에 여기서는 언급하지 않았습니다.
   </blockquote>
   <p>
-    Since we have the service class already done, let's use it inside the <code>CatsController</code>:
+    이미 서비스 클래스가 있으므로 <code>CatsController</code> 내부에서 사용하도록 합니다.
   </p>
   <span class="filename">
     {{ 'cats.controller' | extension: catsServiceT.isJsActive }}
@@ -41,28 +42,29 @@
   <pre [class.hide]="catsControllerT.isJsActive"><code class="language-typescript">{{ catsController }}</code></pre>
   <pre [class.hide]="!catsControllerT.isJsActive"><code class="language-typescript">{{ catsControllerJs }}</code></pre>
   <p>
-    The <code>CatsService</code> is injected through the class constructor.
-    Don't be afraid of the <code>private readonly</code> shortened syntax.
-    It means that we've created and initialized the <code>catsService</code> member immedietely in the same location.
+    <code>CatsService</code> 는 클래스 생성자를 통해 주입됩니다.
+    <code>private readonly</code> 단축 구문을 두려워하지 마십시오.
+    <code>catsService</code> 멤버를 같은 위치에 만들고 초기화했습니다.
   </p>
   <h4>의존성 주입</h4>
   <p>
-    Nest is built around the strong design pattern commonly known as <strong>Dependency injection</strong>.
-    We recommend to read a great article about this concept in the official <a href="https://angular.io/guide/dependency-injection" target="blank">Angular</a> documentation.
+    Nest는 일반적으로 <strong>Dependency Injection</strong> 으로 알려진 강력한 디자인 패턴을 기반으로합니다. 공식 <a href="https://angular.io/guide/dependency-injection"
+      target="blank">Angular</a> 문서에 이 개념에 대한 훌륭한 글을 읽는 것이 좋습니다.
   </p>
   <p>
-    In Nest, thanks to the <strong>TypeScript</strong> capabilities, it's extremely easy to manage dependencies because they will be resolved just by type and afterward, passed
-    to your controller's constructor:
+    Nest에서는 <strong>TypeScript</strong> 기능 덕분에 종속성을 관리하기가 매우 쉽습니다.
   </p>
   <pre><code class="language-typescript">{{ constructorSyntax }}</code></pre>
   <h4>사용자 정의 프로바이더</h4>
   <p>
-    An inversion of control container, that Nest makes use of to resolve relationships between providers, is far more powerful than described above. The <code>@Injectable()</code> decorator is only a tip of an iceberg, not strictly required to define providers. Instead, you can use plain values, classes, either asynchronous or synchronous factories. Look <a routerLink="/fundamentals/dependency-injection">here</a> to find more examples.
+    Nest가 공급자 간 관계를 해결하기 위해 사용하는 컨트롤 컨테이너의 반전은 위에서 설명한 것보다 훨씬 강력합니다. <code>@Injectable()</code> 데코레이터는 빙산의 일각에 지나지 않으며 제공자를
+    정의하는 데 엄격하게 요구되지 않습니다. 대신 비동기식 또는 동기식 팩토리 중 하나 인 일반 값, 클래스를 사용할 수 있습니다. 더 많은 예제를 찾으려면 <a routerlink="/fundamentals/dependency-injection">여기</a>를
+    보십시오.
   </p>
   <h4>마지막으로</h4>
   <p>
-    The last thing is to tell the module that something called <code>CatsService</code> truly exists.
-    We do this by editing our module file - <code>app.module.ts</code>, and put the service into the <code>providers</code> array of the <code>@Module()</code> decorator.
+    마지막으로 <code>CatsService</code>라는 프로바이더가 실제로 존재한다고 모듈에 알리는 것입니다. 모듈 파일 인 <code>app.module.ts</code> 를 수정하여 서비스를 <code>@Module()</code>    데코레이터의
+    <code>providers</code> 배열에 배치합니다.
   </p>
   <span class="filename">
     {{ 'app.module' | extension: appModuleT.isJsActive }}
@@ -70,8 +72,7 @@
   </span>
   <pre><code class="language-typescript">{{ appModule }}</code></pre>
   <p>
-    Thanks to that, Nest will be able to resolve the dependencies of the <code>CatsController</code> class.
-    This is how our directory structure looks right now:
+    덕분에 Nest는 <code>CatsController</code> 클래스의 종속성을 해결할 수 있습니다. 이것은 우리의 디렉토리 구조입니다.
   </p>
   <div class="file-tree">
     <div class="item">src</div>
