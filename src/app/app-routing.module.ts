@@ -87,12 +87,12 @@ const routes: Routes = [
       {
         path: 'first-steps',
         component: FirstStepsComponent,
-        data: { title: 'First steps' },
+        data: { title: '시작하기' },
       },
       {
         path: 'controllers',
         component: ControllersComponent,
-        data: { title: 'Controllers' },
+        data: { title: '컨트롤러' },
       },
       {
         path: 'components',
@@ -101,42 +101,42 @@ const routes: Routes = [
       {
         path: 'providers',
         component: ComponentsComponent,
-        data: { title: 'Providers' },
+        data: { title: '프로바이더' },
       },
       {
         path: 'modules',
         component: ModulesComponent,
-        data: { title: 'Modules' },
+        data: { title: '모듈' },
       },
       {
         path: 'middleware',
         component: MiddlewaresComponent,
-        data: { title: 'Middleware' },
+        data: { title: '미들웨어' },
       },
       {
         path: 'pipes',
         component: PipesComponent,
-        data: { title: 'Pipes' },
+        data: { title: '파이프' },
       },
       {
         path: 'guards',
         component: GuardsComponent,
-        data: { title: 'Guards' },
+        data: { title: '가드' },
       },
       {
         path: 'exception-filters',
         component: ExceptionFiltersComponent,
-        data: { title: 'Exception filters' },
+        data: { title: '예외 필터' },
       },
       {
         path: 'interceptors',
         component: InterceptorsComponent,
-        data: { title: 'Interceptors' },
+        data: { title: '인터셉터' },
       },
       {
         path: 'custom-decorators',
         component: CustomDecoratorsComponent,
-        data: { title: 'Custom decorators' },
+        data: { title: '사용자 정의 데코레이터' },
       },
       {
         path: 'fundamentals/dependency-injection',
@@ -145,12 +145,12 @@ const routes: Routes = [
       {
         path: 'fundamentals/custom-providers',
         component: DependencyInjectionComponent,
-        data: { title: 'Custom providers' },
+        data: { title: '사용자 정의 프로바이더' },
       },
       {
         path: 'fundamentals/platform-agnosticism',
         component: PlatformAgnosticismComponent,
-        data: { title: 'Platform agnosticism' },
+        data: { title: '플랫폼 불가지론' },
       },
       {
         path: 'fundamentals/async-components',
@@ -159,62 +159,62 @@ const routes: Routes = [
       {
         path: 'fundamentals/async-providers',
         component: AsyncComponentsComponent,
-        data: { title: 'Async providers' },
+        data: { title: 'Async 프로바이더' },
       },
       {
         path: 'advanced/hierarchical-injector',
         component: HierarchicalInjectorComponent,
-        data: { title: 'Hierarchical Injector' },
+        data: { title: '계층적 주입' },
       },
       {
         path: 'fundamentals/circular-dependency',
         component: CircularDependencyComponent,
-        data: { title: 'Circular Dependency' },
+        data: { title: '순환 참조' },
       },
       {
         path: 'fundamentals/unit-testing',
         component: UnitTestingComponent,
-        data: { title: 'Unit Testing' },
+        data: { title: '유닛 테스팅' },
       },
       {
         path: 'fundamentals/e2e-testing',
         component: E2eTestingComponent,
-        data: { title: 'E2E Testing' },
+        data: { title: 'E2E 테스팅' },
       },
       {
         path: 'execution-context',
         component: ExecutionContextComponent,
-        data: { title: 'Execution Context' },
+        data: { title: '실행 컨텍스트' },
       },
       {
         path: 'graphql/quick-start',
         component: QuickStartComponent,
-        data: { title: 'GraphQL - Quick Start' },
+        data: { title: 'GraphQL - 시작하기' },
       },
       {
         path: 'graphql/resolvers-map',
         component: ResolversMapComponent,
-        data: { title: 'GraphQL - Resolvers Map' },
+        data: { title: 'GraphQL - 리졸버 맵' },
       },
       {
         path: 'graphql/mutations',
         component: MutationsComponent,
-        data: { title: 'GraphQL - Mutations' },
+        data: { title: 'GraphQL - 뮤테이션' },
       },
       {
         path: 'graphql/scalars',
         component: ScalarsComponent,
-        data: { title: 'GraphQL - Scalars' },
+        data: { title: 'GraphQL - 스칼라' },
       },
       {
         path: 'graphql/subscriptions',
         component: SubscriptionsComponent,
-        data: { title: 'GraphQL - Subscriptions' },
+        data: { title: 'GraphQL - 서브스크립션' },
       },
       {
         path: 'graphql/guards-interceptors',
         component: GuardsInterceptorsComponent,
-        data: { title: 'GraphQL - Guards & Interceptors' },
+        data: { title: 'GraphQL - 가드 & 인터셉터' },
       },
       {
         path: 'graphql/ide',
@@ -224,87 +224,87 @@ const routes: Routes = [
       {
         path: 'graphql/schema-stitching',
         component: SchemaStitchingComponent,
-        data: { title: 'GraphQL - Schema Stitching' },
+        data: { title: 'GraphQL - 스키마 스티칭' },
       },
       {
         path: 'websockets/gateways',
         component: GatewaysComponent,
-        data: { title: 'Gateways' },
+        data: { title: '게이트웨이' },
       },
       {
         path: 'websockets/pipes',
         component: WsPipesComponent,
-        data: { title: 'Pipes - Gateways' },
+        data: { title: '파이프 - 게이트웨이' },
       },
       {
         path: 'websockets/exception-filters',
         component: WsExceptionFiltersComponent,
-        data: { title: 'Exception Filters - Gateways' },
+        data: { title: '예외 필터 - 게이트웨이' },
       },
       {
         path: 'websockets/guards',
         component: WsGuardsComponent,
-        data: { title: 'Guards - Gateways' },
+        data: { title: '가드 - 게이트웨이' },
       },
       {
         path: 'websockets/interceptors',
         component: WsInterceptorsComponent,
-        data: { title: 'Interceptors - Gateways' },
+        data: { title: '인터셉터 - 게이트웨이' },
       },
       {
         path: 'websockets/adapter',
         component: AdapterComponent,
-        data: { title: 'Adapter - Gateways' },
+        data: { title: '어댑터 - 게이트웨이' },
       },
       {
         path: 'microservices/basics',
         component: BasicsComponent,
-        data: { title: 'Microservices' },
+        data: { title: '마이크로서비스' },
       },
       {
         path: 'microservices/redis',
         component: RedisComponent,
-        data: { title: 'Redis - Microservices' },
+        data: { title: 'Redis - 마이크로서비스' },
       },
       {
         path: 'microservices/mqtt',
         component: MqttComponent,
-        data: { title: 'MQTT - Microservices' },
+        data: { title: 'MQTT - 마이크로서비스' },
       },
       {
         path: 'microservices/nats',
         component: NatsComponent,
-        data: { title: 'Nats - Microservices' },
+        data: { title: 'Nats - 마이크로서비스' },
       },
       {
         path: 'microservices/grpc',
         component: GrpcComponent,
-        data: { title: 'gRPC - Microservices' },
+        data: { title: 'gRPC - 마이크로서비스' },
       },
       {
         path: 'microservices/pipes',
         component: MicroservicesPipesComponent,
-        data: { title: 'Pipes - Microservices' },
+        data: { title: '파이프 - 마이크로서비스' },
       },
       {
         path: 'microservices/exception-filters',
         component: MicroservicesExceptionFiltersComponent,
-        data: { title: 'Exception Filters - Microservices' },
+        data: { title: '예외 필터 - 마이크로서비스' },
       },
       {
         path: 'microservices/guards',
         component: MicroservicesGuardsComponent,
-        data: { title: 'Guards - Microservices' },
+        data: { title: '가드 - 마이크로서비스' },
       },
       {
         path: 'microservices/interceptors',
         component: MicroservicesInterceptorsComponent,
-        data: { title: 'Interceptors - Microservices' },
+        data: { title: '인터셉터 - 마이크로서비스' },
       },
       {
         path: 'microservices/custom-transport',
         component: CustomTransportComponent,
-        data: { title: 'Custom Transport - Microservices' },
+        data: { title: '사용자 정의 트랜스포트 - 마이크로서비스' },
       },
       {
         path: 'recipes/sql-typeorm',
@@ -319,7 +319,7 @@ const routes: Routes = [
       {
         path: 'recipes/mockgoose',
         component: MockgooseComponent,
-        data: { title: 'MongoDB E2E Testing (Mongoose + Mockgoose)' },
+        data: { title: 'MongoDB E2E 테스팅 (Mongoose + Mockgoose)' },
       },
       {
         path: 'recipes/passport',
@@ -328,7 +328,7 @@ const routes: Routes = [
       {
         path: 'techniques/authentication',
         component: AuthenticationComponent,
-        data: { title: 'Authentication' },
+        data: { title: '인증' },
       },
       {
         path: 'recipes/sql-sequelize',
@@ -372,32 +372,32 @@ const routes: Routes = [
       {
         path: 'techniques/file-upload',
         component: FileUploadComponent,
-        data: { title: 'File upload' },
+        data: { title: '파일 업로드' },
       },
       {
         path: 'techniques/logger',
         component: LoggerComponent,
-        data: { title: 'Logger' },
+        data: { title: '로거' },
       },
       {
         path: 'techniques/performance',
         component: PerformanceComponent,
-        data: { title: 'Performance (Fastify)' },
+        data: { title: '성능 (Fastify)' },
       },
       {
         path: 'techniques/hot-reload',
         component: HotReloadComponent,
-        data: { title: 'Hot reload (Webpack)' },
+        data: { title: '핫 리로드 (Webpack)' },
       },
       {
         path: 'techniques/http-module',
         component: HttpModuleComponent,
-        data: { title: 'HTTP module' },
+        data: { title: 'HTTP 모듈' },
       },
       {
         path: 'techniques/configuration',
         component: ConfigurationComponent,
-        data: { title: 'Configuration' },
+        data: { title: '설정' },
       },
       {
         path: 'techniques/cors',
@@ -407,22 +407,22 @@ const routes: Routes = [
       {
         path: 'faq/express-instance',
         component: ExpressInstanceComponent,
-        data: { title: 'Express instance - FAQ' },
+        data: { title: 'Express 인스턴스 - FAQ' },
       },
       {
         path: 'faq/global-prefix',
         component: GlobalPrefixComponent,
-        data: { title: 'Global prefix - FAQ' },
+        data: { title: '전역 프리픽스 - FAQ' },
       },
       {
         path: 'faq/lifecycle-events',
         component: LifecycleEventsComponent,
-        data: { title: 'Lifecycle events - FAQ' },
+        data: { title: '라이프사이클 이벤트 - FAQ' },
       },
       {
         path: 'faq/hybrid-application',
         component: HybridApplicationComponent,
-        data: { title: 'Hybrid application - FAQ' },
+        data: { title: '하이브리드 애플리케이션 - FAQ' },
       },
       {
         path: 'faq/multiple-servers',
@@ -432,25 +432,25 @@ const routes: Routes = [
       {
         path: 'migration-guide',
         component: MigrationComponent,
-        data: { title: 'Migration guide - FAQ' },
+        data: { title: '마이그레이션 가이드 - FAQ' },
       },
       {
         path: 'support',
         component: SupportComponent,
-        data: { title: 'Support' },
+        data: { title: '지원' },
       },
       {
         path: 'cli/overview',
         component: CliOverviewComponent,
         data: {
-          title: 'Overview - CLI'
+          title: '개요 - CLI'
         }
       },
       {
         path: 'cli/usages',
         component: CliUsagesComponent,
         data: {
-          title: 'Usage - CLI'
+          title: '사용법 - CLI'
         }
       },
     ],
@@ -468,7 +468,7 @@ const routes: Routes = [
       enableTracing: !environment.production,
     }),
   ],
-  exports: [ RouterModule ],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {
 }
