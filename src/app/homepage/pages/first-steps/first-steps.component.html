@@ -1,41 +1,33 @@
 <div class="content">
   <h3>시작하기</h3>
   <p>
-    In this set of articles, you'll learn the
-    <strong>core fundamentals</strong> of Nest. To get familiar with the essential building-blocks of Nest applications,
-    we'll build a basic CRUD application with features that cover a lot of ground at an introductory level.
+    이 장에서는 Nest의 <strong>기본 원리</strong> 를 배우게됩니다. Nest 애플리케이션의 핵심 요소에 익숙해지기 위해 입문 레벨에서 많은 부분을 다루는 기능으로 기본 CRUD 애플리케이션을 빌드
+    할 것입니다.
   </p>
   <h4>언어</h4>
   <p>
-    We're in love with
-    <a href="http://www.typescriptlang.org/" target="blank">TypeScript</a>, but above all - we love
-    <a href="https://nodejs.org/en/" target="blank">Node.js</a>. That's why Nest is compatible with both TypeScript and
-    <strong>pure JavaScript</strong>. Nest is taking advantage of latest language features, so to use a framework with simple
-    JavaScript we need a
-    <a href="http://babeljs.io/" target="blank">Babel</a> compiler.
+    우리는
+    <a href="http://www.typescriptlang.org/" target="blank">TypeScript</a>와
+    <a href="https://nodejs.org/en/" target="blank">Node.js</a>를 좋아합니다. 이것이 Nest가 TypeScript와 <strong>순수 JavaScript</strong>
+    모두와 호환되는 이유입니다. Nest는 최신 언어 기능을 활용하므로 간단한 JavaScript로 프레임워크를 사용하려면 <a href="http://babeljs.io/" target="blank">Babel</a>
+    컴파일러가 필요합니다.
   </p>
   <p>
-    We'll mostly use TypeScript in the examples we provide, but you can always
-    <strong>switch the code snippets</strong> to vanilla JavaScript syntax.
+    우리가 제공하는 예제에서는 주로 TypeScript를 사용하지만 <strong>코드 조각을 바닐라 자바​스크립트 구문으로 변경</strong> 할 수는 있습니다.
   </p>
   <h4>사전 요구사항</h4>
   <p>
-    Please make sure that
-    <a href="https://nodejs.org/" target="blank">Node.js</a> <strong>(>= 8.9.0)</strong> is installed on your operating system.
+    운영체제에 <a href="https://nodejs.org/" target="blank">Node.js</a> <strong>(&gt; = 8.9.0)</strong> 가 설치되어 있는지 확인하십시오.
   </p>
   <h4>설치</h4>
   <p>
-    Setting up a new project is quite simple with the
-    <a routerLink="/cli/overview">Nest CLI</a>. With
-    <a href="https://www.npmjs.com/" target="blank">npm</a> installed, you can create a new Nest project with the following
-    commands in your OS terminal:
+    <a routerlink="/cli/overview">Nest CLI</a>를 사용하면 새 프로젝트를 간단하게 구축할 수 있습니다. <a href="https://www.npmjs.com/" target="blank">npm</a>이
+    설치 되어 있다면 OS의 터미널에서 다음 명령어로 새 Nest 프로젝트를 만들 수 있습니다.
   </p>
   <pre><code class="language-bash">
 $ npm i -g @nestjs/cli
 $ nest new project</code></pre>
-  <p>The
-    <code>project</code> directory will be scaffolded with several core files being located within a
-    <code>src/</code> directory.
+  <p><code>project</code> 디렉터리는 여러 중요한 파일을 <code>src/</code> 디렉터리에 만듭니다.
   </p>
   <div class="file-tree">
     <div class="item">src</div>
@@ -46,54 +38,48 @@ $ nest new project</code></pre>
     </div>
   </div>
   <p>
-    Following the convention, newly created modules should have their dedicated directory.
+    규칙에 따라 새로 생성 된 모듈은 각자의 전용 디렉터리에 있어야 합니다.
     <table>
       <tr>
         <td>
           <code>main.ts</code>
         </td>
-        <td>The entry file of the application. It uses
-          <code>NestFactory</code> to create the Nest application instance.</td>
+        <td>애플리케이션의 시작점. <code>NestFactory</code> 를 사용하여 Nest 애플리케이션 인스턴스를 만듭니다.</td>
       </tr>
       <tr>
         <td>
           <code>app.module.ts</code>
         </td>
-        <td>Defines
-          <code>AppModule</code>, the root module of the application.</td>
+        <td>애플리케이션의 루트 모듈인 <code>AppModule</code>을 정의합니다.</td>
       </tr>
       <tr>
         <td>
           <code>app.controller.ts</code>
         </td>
-        <td>Basic controller sample with a single route.</td>
+        <td>하나의 라우트가 있는 기본 컨트롤러 샘플.</td>
       </tr>
     </table>
     <p>
-      The
-      <code>main.ts</code> includes an async function, which will
-      <strong>bootstrap</strong> our application:
+      <code>main.ts</code> 에는 비동기 함수가 포함되어있어 애플리케이션을 <strong>부트스트랩</strong> 합니다.
     </p>
     <span class="filename">
       {{ 'main' | extension: bootstrapSwitch.isJsActive }}
-      <app-tabs #bootstrapSwitch></app-tabs>
+      <app-tabs #bootstrapswitch=""></app-tabs>
     </span>
     <pre><code class="language-typescript">{{ bootstrap }}</code></pre>
     <p>
-      To create a Nest application instance, we are using the
-      <code>NestFactory</code>. The
-      <code>create()</code> method returns an object, which fulfills the
-      <code>INestApplication</code> interface, and provides a set of usable methods which are well described in the next
-      chapters.
+      Nest 애플리케이션 인스턴스를 만들려면 <code>NestFactory</code>을 사용합니다. <code>create()</code> 메소드는 <code>INestApplication</code> 인터페이스를
+      구현하는 객체를 반환합니다. 다음 장에서 자세히 설명할 메소드를 제공합니다.
     </p>
-    <h4>Running application</h4>
+    <h4>애플리케이션 실행하기</h4>
     <p>
-      Once the installation process is complete, you can run the following command to start the HTTP server:
+      설치 프로세스가 완료되면 다음 명령을 실행하여 HTTP 서버를 시작할 수 있습니다.
     </p>
     <pre><code class="language-bash">
 $ npm run start</code></pre>
     <p>
-      This command starts the HTTP server on the port defined inside the <code>src/main.ts</code> file. While the application
-      is running, open your browser and navigate to <code>http://localhost:3000/</code>. You should see the <code>Hello world!</code>      message.
+      이 명령은 <code>src/main.ts</code> 파일에 정의된 포트로 HTTP 서버를 시작합니다. 애플리케이션이 실행되면 브라우저를 열고 <code>http://localhost:3000/</code>에
+      접속하세요. <code>Hello world!</code>를 볼 수 있을 것 입니다.
     </p>
+  </p>
 </div>
