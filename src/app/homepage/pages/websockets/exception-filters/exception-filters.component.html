@@ -1,0 +1,20 @@
+<div class="content">
+  <h3>Exception filters</h3>
+  <p>
+    The only difference between <a routerLink="/exception-filters">HTTP exception filter</a> layer and corresponding web sockets layer is that instead of throwing <code>HttpException</code>, you should rather use <code>WsException</code>.
+  </p>
+  <pre><code class="language-typescript">{{ wsException }}</code></pre>
+  <blockquote class="info">
+    <strong>Hint</strong> The <code>WsException</code> class is imported from the <code>@nestjs/websockets</code> package.
+  </blockquote>
+  <p>
+    Nest will handle thrown exception and as a result, emits the <code>exception</code> message with the following structure:
+  </p>
+  <pre><code class="language-typescript">{{ exceptionResponse }}</code></pre>
+  <h4>Filters</h4>
+  <p>
+    The <strong>custom filters</strong> feature is supported as well and works equivalently.
+    Here is an example that makes use of a manually instantiated <strong>method-scoped</strong> filter (class-scoped works either):
+  </p>
+  <pre><code class="language-typescript">{{ example }}</code></pre>
+</div>

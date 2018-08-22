@@ -1,0 +1,11 @@
+<nav class="nav-container" (click)="$event.stopPropagation()">
+  <app-menu-item 
+    *ngFor="let item of items"
+    [isOpen]="item.isOpened"
+    [title]="item.title"
+    [externalUrl]="item?.externalUrl"
+    [path]="item?.path"
+    [children]="item.children"
+    class="nav-item"
+  ></app-menu-item>
+</nav> 

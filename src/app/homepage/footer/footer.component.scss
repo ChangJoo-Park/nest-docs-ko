@@ -1,0 +1,73 @@
+@import "../../../scss/variables.scss";
+@import "../../../scss/utils.scss";
+
+:host {
+  @extend .transition;
+  @extend .box-sizing;
+  background: $black-color;
+  display: block;
+  height: 108px;
+  padding: 16px 2px 16px 52px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  width: auto;
+  font-size: 15px;
+
+  @include media(medium) { 
+    padding: 15px;
+    margin: 0 -30px; 
+    width: calc(100% + 60px);
+    position: static;
+    height: auto;
+    text-align: center;
+  }
+}
+
+footer {
+  display: block;
+  position: relative;
+  color: #717171;
+
+  a {
+    @extend .transition;
+    color: #717171;
+    &:hover {
+      color: $white-color;
+    }
+  }
+
+  p {
+    line-height: 27px;
+  }
+}
+
+.social-wrapper {
+  @extend .center-top;
+  position: absolute;
+  right: 40px;
+
+  @include media(medium) {
+    @include transform(translateX(0) translateY(0));
+    position: static;
+    text-align: center;
+  }
+  a {
+    @extend .transition;
+    display: inline-block;
+    vertical-align: middle;
+    color: $darksilver-color;
+    font-size: 22px;
+    margin-left: 10px;
+    cursor: pointer;
+
+    &:first-of-type {
+      font-size: 20px;
+    }
+    &:hover {
+      color: $white-color;
+    }
+  }
+}

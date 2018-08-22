@@ -1,0 +1,32 @@
+<div class="content">
+  <h3>Exception filters</h3>
+  <p>
+    The only difference between <a routerLink="/exception-filters">HTTP exception filter</a> layer and corresponding microservices layer is that instead of throwing <code>HttpException</code>, you should rather use <code>RpcException</code>.
+  </p>
+  <pre><code class="language-typescript">{{ rpcException }}</code></pre>
+  <blockquote class="info">
+    <strong>Hint</strong> The <code>RpcException</code> class is imported from the <code>@nestjs/microservices</code> package.
+  </blockquote>
+  <p>
+    Nest will handle thrown exception and as a result, returns the <code>error</code> object with the following structure:
+  </p>
+  <pre><code class="language-typescript">{{ exceptionResponse }}</code></pre>
+  <h4>Filters</h4>
+  <p>
+    The <strong>exception filters</strong> work in the same fashion as the primary ones, with a one, small difference.
+    The <code>catch()</code> method has to return an <code>Observable</code>.
+  </p>
+  <span class="filename">
+    {{ 'rpc-exception.filter' | extension: rpcExceptionFilterT.isJsActive }}
+    <app-tabs #rpcExceptionFilterT></app-tabs>
+  </span>
+  <pre [class.hide]="rpcExceptionFilterT.isJsActive"><code class="language-typescript">{{ rpcExceptionFilter }}</code></pre>
+  <pre [class.hide]="!rpcExceptionFilterT.isJsActive"><code class="language-typescript">{{ rpcExceptionFilterJs }}</code></pre>
+  <blockquote>
+    <strong>Warning</strong> That is impossible to set up the microservices exception filters globally.
+  </blockquote>
+  <p>
+    Here is an example that makes use of a manually instantiated <strong>method-scoped</strong> filter (class-scoped works either):
+  </p>
+  <pre><code class="language-typescript">{{ example }}</code></pre>
+</div>
