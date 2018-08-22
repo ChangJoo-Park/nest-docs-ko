@@ -1,45 +1,42 @@
 <div class="content">
   <h3>모듈</h3>
   <p>
-    A module is a class annotated with a <code>@Module()</code> decorator. The <code>@Module()</code> decorator provides
-    metadata that <strong>Nest</strong> makes use of to organize the application structure.
+    모듈은 <code>@Module()</code> 데코레이터가 달린 클래스입니다. <code>@Module()</code> 데코레이터는 <strong>Nest</strong>가 애플리케이션을 구성하는 데 사용하는
+    메타 데이터를 제공합니다.
   </p>
-  <figure><img src="/assets/Modules_1.png" /></figure>
+  <figure><img src="/assets/Modules_1.png"></figure>
   <p>
-    Each Nest application has at least one module, the <strong>root module</strong>. The root module is the place where Nest
-    is starting to arrange the application tree. In fact, the root module could be the only module in your application, especially
-    when the app is small. For large applications however, it doesn't make sense. In most cases, you'll have several modules,
-    each with a closely related set of <strong>capabilities</strong>.
+    각 Nest 응용 프로그램에는 적어도 하나의 모듈 인 <strong>루트 모듈이</strong> 있습니다. 루트 모듈은 Nest가 응용 프로그램 트리 정렬을 시작하는 곳입니다. 사실 루트 모듈은 특히 애플리케이션이
+    작을 때는 단 하나의 모듈이 될 수 있습니다. 그러나 대규모 응용 프로그램의 경우에는 다릅니다. 대부분의 경우, <strong>기능</strong>의 밀접한 관계 세트를 각각 여러 모듈로 만들어야합니다.
   </p>
   <p>
-    The <code>@Module()</code> decorator takes a single object whose properties describe the module:
+    <code>@Module()</code> 데코레이터는 모듈을 설명하는 속성을 가진 단일 객체를 사용합니다.
   </p>
   <table>
     <tr>
       <td><code>providers</code></td>
-      <td>the providers that will be instantiated by the Nest injector and may be shared at least across this module.</td>
+      <td>Nest 인젝터에 의해 인스턴스화되며 적어도이 모듈에서 공유 될 수 있는 프로바이더.</td>
     </tr>
     <tr>
       <td><code>controllers</code></td>
-      <td>the set of controllers which have to be created</td>
+      <td>생성해야하는 컨트롤러 세트 집합</td>
     </tr>
     <tr>
       <td><code>imports</code></td>
-      <td>the list of imported modules that export the providers which are required in this module</td>
+      <td>이 모듈에 필요한 프로바이더를 가져온 모듈 목록</td>
     </tr>
     <tr>
       <td><code>exports</code></td>
-      <td>the subset of <code>providers</code> that are provided by this module and should be available in the other modules</td>
+      <td>이 모듈이 제공하고 다른 모듈에서 사용할 수 있는 <code>providers</code> 의 하위 집합</td>
     </tr>
   </table>
   <p>
-    The module <strong>encapsulates</strong> providers by default. It means that it's impossible to inject providers that
-    are neither directly part of the current module nor they're exported from the imported modules.
+    모듈은 기본적으로 프로바이더를 <strong>캡슐화</strong> 합니다. 즉, 현재 모듈의 일부가 아니거나 가져온 모듈에서 내보낸 프로바이더를 삽입하는 것은 불가능합니다.
   </p>
   <h4>기능 모듈</h4>
   <p>
-    The <code>CatsController</code> and <code>CatsService</code> belong to the same application domain. We shall consider
-    to move them to a feature module, being the <code>CatsModule</code>.
+    <code>CatsController</code> 와 <code>CatsService</code> 는 동일한 애플리케이션 도메인에 속합니다. <code>CatsModule</code> 기능 모듈로 이동시키는 것을
+    고려해야합니다.
   </p>
   <span class="filename">
     {{ 'cats/cats.module' | extension: catsModuleT.isJsActive }}
@@ -47,8 +44,8 @@
   </span>
   <pre><code class="language-typescript">{{ catsModule }}</code></pre>
   <p>
-    We defined the <code>cats.module.ts</code> file and after that moved everything related to this module into the
-    <code>cats</code> directory. The last thing we need to do is import this module into the root module (<code>ApplicationModule</code>).
+    <code>cats.module.ts</code> 파일을 정의한 다음이 모듈과 관련된 모든 것을 <code>cats</code> 디렉토리로 이동했습니다. 마지막으로이 모듈을 루트 모듈 ( <code>ApplicationModule</code>    )에
+    가져와야합니다.
   </p>
   <span class="filename">
     {{ 'app.module' | extension: appModuleT.isJsActive }}
@@ -56,8 +53,7 @@
   </span>
   <pre><code class="language-typescript">{{ appModule }}</code></pre>
   <p>
-    Thanks to that Nest knows that besides <code>ApplicationModule</code>, it's essential to register the <code>CatsModule</code>    as
-    well. That's how our directory structure looks right now:
+    Nest는 <code>ApplicationModule</code> 외에도 <code>CatsModule</code> 등록이 필요하다는 것을 알게 됩니다. 아래의 디렉토리 구조가 지금 보이는 방법입니다.
   </p>
   <div class="file-tree">
     <div class="item">src</div>
@@ -82,14 +78,12 @@
   </div>
   <h4>공유 모듈</h4>
   <p>
-    In Nest, modules <strong>are singletons</strong> by default, and thus you can share the <strong>same instance</strong>
-    of any provider between 2..* modules effortlessly.
+    Nest에서 모듈은 기본적으로 <strong>싱글톤</strong>이므로 모든 공급자간에 <strong>동일한 인스턴스</strong> 를 2개 이상의 모듈간에 쉽게 공유 할 수 있습니다.
   </p>
-  <figure><img src="/assets/Shared_Module_1.png" /></figure>
+  <figure><img src="/assets/Shared_Module_1.png"></figure>
   <p>
-    Every module is a <strong>shared module</strong> in fact. Once created it can be reused by any module. Let's imagine
-    that we want to share the <code>CatsService</code> instance between few other modules. In order to do that, we need to
-    put the <code>CatsService</code> into <code>exports</code> array as shown below:
+    모든 모듈은 사실 <strong>공유 모듈</strong> 입니다. 일단 생성되면 모든 모듈에서 재사용 할 수 있습니다. 다른 몇몇 모듈 사이에서 <code>CatsService</code> 인스턴스를 공유하려고한다고
+    가정 해 봅시다. 이를 위해, <code>CatsService</code> 를 <code>exports</code> 배열에 넣어야합니다.
   </p>
   <span class="filename">
     {{ 'cats.module' | extension: catsModuleSharedT.isJsActive }}
@@ -97,12 +91,12 @@
   </span>
   <pre><code class="language-typescript">{{ catsModuleShared }}</code></pre>
   <p>
-    Now each module which would import the <code>CatsModule</code> has an access to the <code>CatsService</code> and will
-    share the same instance with all of the modules that import this module as well.
+    이제 <code>CatsModule</code>을 가져올 각 모듈은 <code>CatsService</code>에 대한 액세스 권한을 가지며이 모듈을 가져 오는 모든 모듈과 동일한 인스턴스를 공유합니다.
+
   </p>
   <h4>모듈 재추출(re-exporting)</h4>
   <p>
-    The modules can export their internal providers. Moreover, they can re-export modules imported by themselves.
+    모듈은 내부의 프로바이더를 내보낼 수 있습니다. 또한, 그들은 스스로 import 한 모듈을 다시 내보낼 수 있습니다.
   </p>
   <span class="filename">
     <app-tabs #reExportExamleT></app-tabs>
@@ -110,7 +104,7 @@
   <pre><code class="language-typescript">{{ reExportExamle }}</code></pre>
   <h4>의존성 주입</h4>
   <p>
-    A module class can <strong>inject</strong> providers as well (e.g. for configuration purposes):
+    모듈 클래스는 프로바이더를 <strong>삽입</strong> 할 수 있습니다 (예 : 설정을 위함).
   </p>
   <span class="filename">
     {{ 'cats.module' | extension: catsModuleDiT.isJsActive }}
@@ -119,37 +113,30 @@
   <pre [class.hide]="catsModuleDiT.isJsActive"><code class="language-typescript">{{ catsModuleDi }}</code></pre>
   <pre [class.hide]="!catsModuleDiT.isJsActive"><code class="language-typescript">{{ catsModuleDiJs }}</code></pre>
   <p>
-    However, module classes cannot be injected by the providers due to <a href="/fundamentals/circular-dependency">circular
-      dependency
-    </a>.
+    그러나 <a href="/fundamentals/circular-dependency">순환 참조</a>로 인해 모듈 클래스를 프로바이더가 삽입 할 수 없습니다.
   </p>
   <h4>전역 모듈</h4>
   <p>
-    If you have to import the same set of modules everywhere, it might be annoying. In <a href="https://angular.io" target="blank">Angular</a>,
-    the <code>providers</code> are registered in the global scope. Once defined, they're available everywhere. On the other
-    hand, Nest encapsulates providers inside the module scope. You aren't able to use the module providers elsewhere without
-    importing them. But sometimes, you may just want to provide a set of things which should be available always - out-of-the-box,
-    for example: helpers, database connection, whatever. That's why you're able to make the module a <strong>global</strong>
-    one.
+    동일한 모듈 세트를 모든 곳으로 가져와야하는 경우 귀찮을 수 있습니다. <a href="https://angular.io" target="blank">Angular</a> 에서 <code>providers</code>    는
+    전역 범위에 등록됩니다. 일단 정의되면 모든 곳에서 사용할 수 있습니다. 반면 Nest는 공급자를 모듈 범위 내에 캡슐화합니다. 모듈 공급자를 가져 오지 않으면 다른 곳에서 모듈 공급자를 사용할 수 없습니다.
+    그러나 때로는 헬퍼, 데이터베이스 연결 등과 같이 항상 사용 가능한 일련의 기능을 제공하는 것이 좋습니다. 그렇기 때문에 모듈을 <strong>글로벌</strong> 하게 만들 수 있습니다.
   </p>
   <span class="filename">
     <app-tabs #globalScopeT></app-tabs>
   </span>
   <pre><code class="language-typescript">{{ globalScope }}</code></pre>
   <p>
-    The <code>@Global()</code> decorator makes the module global-scoped. Global modules shall be registered <strong>only
-      once
-    </strong>, in best case by the root or core module. Afterward, the <code>CatsService</code> provider will be ubiquitous,
-    although <code>CatsModule</code> won't be imported.
+    <code>@Global()</code> 데코레이터는 모듈을 전역 범위로 만듭니다. 글로벌 모듈은 루트 모듈 또는 코어 모듈에 의해 <strong>한 번만</strong> 등록되어야합니다. 이후 <code>CatsModule</code>    은
+    가져올 수 없지만 <code>CatsService</code> 공급자는 유비쿼터스가 될 것입니다.
   </p>
   <blockquote class="info">
-    <strong>Hint</strong> Making everything global is not a good choice. The global modules are available to reduce the amount
-    of necessary boilerplate. The <code>imports</code> array is still the best way to make the module API transparent.
+    <strong>힌트</strong> : 모든 것을 글로벌하게 만드는 것은 좋은 선택이 아닙니다. 전역 모듈은 필요한 상용구의 양을 줄이기 위해 사용할 수 있습니다. <code>imports</code> 배열은
+    여전히 ​​모듈 API를 투명하게 만드는 가장 좋은 방법입니다.
   </blockquote>
   <h4>동적 모듈</h4>
   <p>
-    The Nest module system comes with a feature called <strong>dynamic modules</strong>. It enables you to create customizable
-    modules without any effort. Let's have a look at the <code>DatabaseModule</code>:
+    Nest 모듈 시스템에는 <strong>동적 모듈</strong> 이라는 기능이 있습니다. 그것은 당신이 노력없이 사용자 정의 모듈을 만들 수 있습니다. <code>DatabaseModule</code> 살펴
+    보겠습니다.
   </p>
   <span class="filename">
     <app-tabs #dynamicModulesT></app-tabs>
@@ -157,17 +144,16 @@
   <pre [class.hide]="dynamicModulesT.isJsActive"><code class="language-typescript">{{ dynamicModules }}</code></pre>
   <pre [class.hide]="!dynamicModulesT.isJsActive"><code class="language-typescript">{{ dynamicModulesJs }}</code></pre>
   <blockquote class="info">
-    <strong>Hint</strong> The <code>forRoot()</code> may return dynamic module either synchronously or asynchronously (<code>Promise</code>).
+    <strong>힌트</strong> <code>forRoot()</code> 는 동 기적 또는 비동기 적으로 동적 모듈을 반환 할 수 있습니다 ( <code>Promise</code> ).
   </blockquote>
   <p>
-    This module defines the <code>Connection</code> provider by default, but additionally - depending on the passed <code>options</code>    and
-    <code>entities</code> - it exposes a collection of the providers, for example, repositories. In fact, the dynamic module
-    <strong>extends</strong> the base module metadata. This substantial feature is useful when you need to register providers
-    dynamically. Then you could import the <code>DatabaseModule</code> in the following manner:
+    이 모듈은 기본적으로 <code>Connection</code> 공급자를 정의하지만 추가적으로 - 전달 된 <code>options</code> 과 <code>entities</code> 에 따라 - 저장소와
+    같은 공급자 모음을 제공합니다. 사실, 동적 모듈은 기본 모듈 메타 데이터를 <strong>확장</strong> 합니다. 이 실질적인 기능은 제공자를 동적으로 등록해야 할 때 유용합니다. 다음과 같이 <code>DatabaseModule</code>    을
+    임포트 할 수 있습니다.
   </p>
   <pre><code class="language-typescript">{{ importDynamicModules }}</code></pre>
   <p>
-    In order to export dynamic module, you can omit a function call part:
+    동적 모듈을 내보내려면 함수 호출 부분을 생략하면됩니다.
   </p>
   <pre><code class="language-typescript">{{ exportDynamicModules }}</code></pre>
   <!--<h4>Single Scope</h4>
