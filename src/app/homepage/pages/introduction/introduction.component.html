@@ -1,32 +1,27 @@
 <div class="content">
   <h3>소개</h3>
-  <p>Nest is a framework for building efficient, scalable <a href="http://nodejs.org" target="_blank">Node.js</a> server-side
-    applications. It uses progressive JavaScript, is built with <a href="http://www.typescriptlang.org" target="_blank">TypeScript</a>
-    (preserves compatibility with pure JavaScript) and combines elements of OOP (Object Oriented Programming), FP (Functional
-    Programming), and FRP (Functional Reactive Programming).</p>
-  <p>Under the hood, Nest makes use of <a href="https://expressjs.com/" target="_blank">Express</a>, but also provides compatibility
-    with a wide range of other libraries (e.g. <a href="https://github.com/fastify/fastify" target="_blank">Fastify</a>).
-    This allows for easy use of the myriad third-party plugins which are available.</p>
+  <p>Nest는 효율적이고 확장 가능한 <a href="http://nodejs.org" target="_blank">Node.js</a> 서버 측 애플리케이션을 구축하기 위한 프레임 워크입니다. 최신 JavaScript를
+    사용하고 <a href="http://www.typescriptlang.org" target="_blank">TypeScript</a>(순수 JavaScript와의 호환성은 유지됨) 및 OOP (객체지향 프로그래밍),
+    FP (함수형 프로그래밍) 및 FRP (함수형 반응형 프로그래밍)의 요소를 결합합니다.</p>
+  <p>조금 들어가면, Nest는 <a href="https://expressjs.com/" target="_blank">Express</a>를 이용해 만들었습니다. 그러나 많은 다른 라이브러리와의 호환성을 제공합니다.
+    (예. <a href="https://github.com/fastify/fastify" target="_blank">Fastify</a>) 이는 무수히 많은 서드파티 플러그인을 쉽게 사용할 수 있음을 의미합니다.</p>
 
   <h3>철학</h3>
-  <p>In recent years, thanks to Node.js, JavaScript has become the “lingua franca” of the web for both front and backend
-    applications. This has given rise to awesome projects like <a href="https://angular.io/" target="_blank">Angular</a>,
-    <a href="https://github.com/facebook/react" target="_blank">React</a> and <a href="https://github.com/vuejs/vue" target="_blank">Vue</a>
-    which improve developer productivity and enable the construction of fast, testable, and extensible frontend applications.
-    However, while plenty of superb libraries, helpers, and tools exist for Node (and server-side JavaScript), none of them
-    effectively solve the main problem - <strong>architecture</strong>.</p>
-  <p>Nest provides an out-of-the-box application architecture which allows for effortless creation of highly testable, scalable,
-    loosely coupled, and easily maintainable applications.</p>
+  <p>최근 몇 년 동안 Node.js 덕분에 자바 스크립트는 프론트엔드와 백엔드 애플리케이션 모두를 위한 웹의 "공용어"가 되었습니다. 이로 인해 <a href="https://angular.io/" target="_blank">Angular</a>,
+    <a href="https://github.com/facebook/react" target="_blank">React</a> 및 <a href="https://github.com/vuejs/vue" target="_blank">Vue</a>와
+    같은 멋진 프로젝트가 생겨났습니다. 이 프로젝트는 개발자의 생산성을 향상 시켰습니다. 그리고 빠르고 테스트가 가능하며 확장 가능한 프론트엔드 애플리케이션을 구축할 수 있게되었습니다. 이에 반해 Node (및 서버
+    측 JavaScript)에는 뛰어난 라이브러리, 헬퍼 및 도구가 많이 있음에도 그 중 아무도 주요 문제인 <strong>아키텍처</strong>를 효과적으로 해결하지 못했습니다.</p>
+  <p>Nest는 즉시 테스트 할 수 있고 확장 가능하며 느슨하게 결합되고 쉽게 유지 관리 할 수있는 애플리케이션을 손쉽게 만들 수 있는 아키텍처를 제공합니다.</p>
 
   <h3>설치</h3>
-  <p>To get started, scaffold the base project with the <a routerLink="/cli/overview">Nest CLI</a>:</p>
+  <p>시작하려면 <a routerlink="/cli/overview">Nest CLI</a>를 사용하여 기본 프로젝트를 스캐폴딩하십시오.</p>
   <pre><code class="language-bash">
 $ npm i -g @nestjs/cli
 $ nest new project-name</code></pre>
 
-  <p>Install the starter project with <strong>Git</strong>:</p>
+  <p><strong>Git</strong>을 사용 하여 스타터 프로젝트를 설치하십시오.</p>
   <span class="filename">
-    <app-tabs #starter></app-tabs>
+    <app-tabs #starter=""></app-tabs>
   </span>
   <pre [class.hide]="starter.isJsActive"><code class="language-bash">
 $ git clone https://github.com/nestjs/typescript-starter.git project
@@ -39,13 +34,14 @@ $ cd project
 $ npm install
 $ npm run start</code></pre>
 
-  <p>And finally, start a new project from scratch with <strong>NPM (or Yarn)</strong>:</p>
+  <p>마지막으로 <strong>NPM (또는 Yarn)</strong>을 사용 하여 처음부터 새 프로젝트를 시작하십시오.</p>
   <pre><code class="language-bash">
 $ npm i --save @nestjs/core @nestjs/common rxjs reflect-metadata</code></pre>
   <h3>연락하기</h3>
   <ul>
     <li>Author - <a href="https://kamilmysliwiec.com" title="Kamil Mysliwiec Blog | Full-Stack Software Engineer" target="blank">Kamil
-        Myśliwiec</a></li>
+        Myśliwiec
+      </a></li>
     <li>Website - <a href="https://nestjs.com" title="Nest - A node.js framework built on top of TypeScript" target="blank">https://nestjs.com</a></li>
     <li>Twitter - <a href="https://twitter.com/nestframework" target="blank">@nestframework</a></li>
   </ul>
