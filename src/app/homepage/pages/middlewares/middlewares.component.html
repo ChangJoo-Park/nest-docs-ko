@@ -1,32 +1,38 @@
 <div class="content">
-  <h3>미들웨어</h3>
+  <h3>미들웨어
+  </h3>
   <p>
-    The middleware is a function which is called <strong>before</strong> the route handler. Middleware functions have access
-    to the <a href="http://expressjs.com/en/4x/api.html#req" target="blank">request</a>
-    and <a href="http://expressjs.com/en/4x/api.html#res" target="blank">response</a> objects, and the <code>next</code>    middleware
-    function in the application’s request-response cycle. The <strong>next</strong> middleware function is commonly denoted
-    by a variable named <code>next</code>.
+    미들웨어는 라우트 핸들러
+    <strong>전에</strong> 호출되는 함수입니다. 미들웨어 기능은
+    <a href="http://expressjs.com/en/4x/api.html#req" target="blank">요청</a> 및
+    <a href="http://expressjs.com/en/4x/api.html#res" target="blank">응답</a> 객체에 액세스하고 애플리케이션의 요청 - 응답주기에서
+    <code>next</code> 미들웨어 기능을 사용합니다.
+    <strong>next</strong> 미들웨어 기능은 보통
+    <code>next</code> 라는 변수로 표시됩니다.
   </p>
-  <figure><img src="/assets/Middlewares_1.png" /></figure>
+  <figure>
+    <img src="/assets/Middlewares_1.png">
+  </figure>
   <p>
-    The Nest middleware, by default, are equal to <a href="http://expressjs.com/en/guide/using-middleware.html" target="blank">express</a>
-    middleware. Here's a great list of the middleware capabilities copied from the official express documentation:
+    Nest 미들웨어는 기본적으로
+    <a href="http://expressjs.com/en/guide/using-middleware.html" target="blank">Express</a> 미들웨어와 같습니다. 다음은 공식 익스프레스 문서에서 가져온 훌륭한 미들웨어 기능 목록입니다.
   </p>
   <blockquote class="external">
-    Middleware functions can perform the following tasks:
+    미들웨어 기능은 다음 작업을 수행 할 수 있습니다.
     <ul>
-      <li>execute any code.</li>
-      <li>make changes to the request and the response objects.</li>
-      <li>end the request-response cycle.</li>
-      <li>call the next middleware function in the stack.</li>
-      <li>if the current middleware function does not end the request-response cycle, it must call <code>next()</code> to
-        pass control to the next middleware function. Otherwise, the request will be left hanging.</li>
+      <li>어떤 코드든 실행할 수 있습니다.</li>
+      <li>요청과 응답 객체를 변형할 수 있습니다.</li>
+      <li>요청-응답 사이클을 중단합니다.</li>
+      <li>스택의 다음 미들웨어 기능을 호출합니다.</li>
+      <li>현재 미들웨어 기능이 요청 - 응답주기를 끝내지 않으면
+        <code>next()</code> 를 호출하여 제어를 다음 미들웨어 기능에 전달합니다. 그렇지 않으면 요청이 중단됩니다.</li>
     </ul>
   </blockquote>
   <p>
-    The Nest middleware is either a function, or a class with a <code>@Injectable()</code> decorator. The class should implement
-    the <code>NestMiddleware</code> interface, while function does not have any special requirements. Let's start from the
-    <code>LoggerMiddleware</code> example.
+    Nest 미들웨어는 함수이거나
+    <code>@Injectable()</code> 데코레이터가있는 클래스입니다. 함수는 특별한 요구 사항이없는 반면, 클래스는
+    <code>NestMiddleware</code> 인터페이스를 구현해야합니다.
+    <code>LoggerMiddleware</code> 예제부터 살펴 보겠습니다.
   </p>
   <span class="filename">
     {{ 'logger.middleware' | extension: loggerMiddlewareT.isJsActive }}
@@ -35,19 +41,22 @@
   <pre [class.hide]="loggerMiddlewareT.isJsActive"><code class="language-typescript">{{ loggerMiddleware }}</code></pre>
   <pre [class.hide]="!loggerMiddlewareT.isJsActive"><code class="language-typescript">{{ loggerMiddlewareJs }}</code></pre>
   <p>
-    The <code>resolve()</code> method has to return a regular library-specific middleware <code>(req, res, next) => any</code>.
+    <code>resolve()</code> 메소드는 정규 라이브러리 특정 미들웨어
+    <code>(req, res, next) =&gt; any</code> 를 리턴합니다
   </p>
   <h4>의존성 주입</h4>
   <p>
-    There's no exception when it comes to the middleware. Same as providers and controllers, they are able to <strong>inject
-      dependencies
-    </strong> that belongs to the same module (through the <code>constructor</code>).
+    미들웨어에 대한 예외는 없습니다. 프로바이더 및 컨트롤러와 마찬가지로 동일한 모듈에 속한
+    <strong>종속성</strong> 을
+    <code>constructor</code> 통해 주입할 수 있습니다.
   </p>
   <h4>미들웨어를 적용하려면?</h4>
   <p>
-    There's no place for middleware in the <code>@Module()</code> decorator. We have to set them up using the <code>configure()</code>    method
-    of the module class. Modules that include middleware have to implement the <code>NestModule</code> interface. Let's set
-    up the <code>LoggerMiddleware</code> at the <code>ApplicationModule</code> level.
+    <code>@Module()</code> 데코레이터에는 미들웨어를 사용할 곳이 없습니다. 우리는 모듈 클래스의
+    <code>configure()</code> 메소드를 사용하여 그것들을 설정해야 합니다. 미들웨어가 포함 된 모듈은
+    <code>NestModule</code> 인터페이스를 구현해야합니다.
+    <code>ApplicationModule</code> 레벨에서
+    <code>LoggerMiddleware</code> 를 설정해 보겠습니다.
   </p>
   <span class="filename">
     {{ 'app.module' | extension: applicationModuleT.isJsActive }}
@@ -56,9 +65,10 @@
   <pre [class.hide]="applicationModuleT.isJsActive"><code class="language-typescript">{{ applicationModule }}</code></pre>
   <pre [class.hide]="!applicationModuleT.isJsActive"><code class="language-typescript">{{ applicationModuleJs }}</code></pre>
   <p>
-    In the above example we have set up the <code>LoggerMiddleware</code> for <code>/cats</code> route handlers that we have
-    previously defined inside the <code>CatsController</code>. Besides, we may restrict a middleware to the particular request
-    method.
+    위의 예제에서 이전에
+    <code>CatsController</code> 내부에 정의한
+    <code>/cats</code> 라우트 핸들러에 대한
+    <code>LoggerMiddleware</code> 를 설정했습니다. 게다가 우리는 미들웨어를 특정 요청 방법으로 제한 할 수 있습니다.
   </p>
   <span class="filename">
     {{ 'app.module' | extension: routeInfoT.isJsActive }}
@@ -67,10 +77,11 @@
   <pre [class.hide]="routeInfoT.isJsActive"><code class="language-typescript">{{ routeInfo }}</code></pre>
   <pre [class.hide]="!routeInfoT.isJsActive"><code class="language-typescript">{{ routeInfoJs }}</code></pre>
   <p>
-    The <code>MiddlewareConsumer</code> is a helper class. It provides several built-in methods to manage middleware. All
-    of them can be simply <strong>chained</strong>. The <code>forRoutes()</code> can take a single string, multiple strings,
-    <code>RouteInfo</code> object, a controller class and even multiple controller classes. In most cases you'll probably
-    just pass the <strong>controllers</strong> and separate them by a comma. Below is an example with a single controller:
+    <code>MiddlewareConsumer</code> 는 헬퍼클래스입니다. 미들웨어를 관리하기위한 몇 가지 기본 제공 메소드를 제공합니다. 이 모든 것은 단순히
+    <strong>연결될</strong> 수 있습니다.
+    <code>forRoutes()</code> 는 단일 문자열, 다중 문자열,
+    <code>RouteInfo</code> 객체, 컨트롤러 클래스 및 다중 컨트롤러 클래스를 취할 수 있습니다. 대부분의 경우
+    <strong>컨트롤러를</strong> 전달하고 쉼표로 구분합니다. 다음은 단일 컨트롤러를 사용한 예입니다.
   </p>
   <span class="filename">
     {{ 'app.module' | extension: applicationModuleByControllersT.isJsActive }}
@@ -79,11 +90,14 @@
   <pre [class.hide]="applicationModuleByControllersT.isJsActive"><code class="language-typescript">{{ applicationModuleByControllers }}</code></pre>
   <pre [class.hide]="!applicationModuleByControllersT.isJsActive"><code class="language-typescript">{{ applicationModuleByControllersJs }}</code></pre>
   <blockquote class="info">
-    <strong>Hint</strong> The <code>apply()</code> method may either take a single middleware, or an <strong>array of middleware</strong>.
+    <strong>힌트</strong>
+    <code>apply()</code> 메서드는 단일 미들웨어 또는
+    <strong>미들웨어 배열을 사용할 수</strong> 있습니다.
   </blockquote>
   <p>
-    Whilst class is used, quite often we might want to <strong>exclude</strong> certain routes. That is very intuitive due
-    to the <code>exclude()</code> method.
+    클래스가 사용되는 동안 우리는 종종 특정 경로를
+    <strong>제외</strong> 하고자 할 수 있습니다. 이는
+    <code>exclude()</code> 메소드로 인해 매우 직관적입니다.
   </p>
   <span class="filename">
     {{ 'app.module' | extension: applicationModuleExcludeT.isJsActive }}
@@ -93,9 +107,9 @@
   <pre [class.hide]="!applicationModuleExcludeT.isJsActive"><code class="language-typescript">{{ applicationModuleExcludeJs }}</code></pre>
   <h4>설정 가능한 미들웨어</h4>
   <p>
-    Sometimes the behaviour of the middleware depends on the custom values e.g. an array of user roles, options object, and so
-    on. We may apply additional arguments to the <code>resolve()</code> using the <code>with()</code> method. See an
-    example below:
+    때로는 미들웨어의 동작은 사용자 정의 값, 예를 들어 사용자 역할 배열, 옵션 객체 등에 따라 달라집니다.
+    <code>with()</code> 메서드를 사용하여
+    <code>resolve()</code> 추가 인수를 적용 할 수 있습니다. 아래 예를 참조하십시오.
   </p>
   <span class="filename">
     {{ 'app.module' | extension: applicationModuleWithMethodT.isJsActive }}
@@ -104,8 +118,10 @@
   <pre [class.hide]="applicationModuleWithMethodT.isJsActive"><code class="language-typescript">{{ applicationModuleWithMethod }}</code></pre>
   <pre [class.hide]="!applicationModuleWithMethodT.isJsActive"><code class="language-typescript">{{ applicationModuleWithMethodJs }}</code></pre>
   <p>
-    We have passed a plain string - <code>ApplicationModule</code> to the <code>with()</code> method. Thereafter, we have
-    to adjust the <code>resolve()</code> method of the <code>LoggerMiddleware</code>.
+    <code>ApplicationModule</code> 을
+    <code>with()</code> 메서드에 전달했습니다. 그런 다음
+    <code>LoggerMiddleware</code> 의
+    <code>resolve()</code> 메소드를 조정해야한다.
   </p>
   <span class="filename">
     {{ 'logger.middleware' | extension: loggerMiddlewareWithArgsT.isJsActive }}
@@ -114,13 +130,17 @@
   <pre [class.hide]="loggerMiddlewareWithArgsT.isJsActive"><code class="language-typescript">{{ loggerMiddlewareWithArgs }}</code></pre>
   <pre [class.hide]="!loggerMiddlewareWithArgsT.isJsActive"><code class="language-typescript">{{ loggerMiddlewareWithArgsJs }}</code></pre>
   <p>
-    In this case, the value of the <code>name</code> property will be <code>'ApplicationModule'</code>.
+    이 경우
+    <code>name</code> 속성의 값은
+    <code>'ApplicationModule'</code> 됩니다.
   </p>
   <h4>비동기 미들웨어</h4>
   <p>
-    There are no contraindications that would prevent us from returning the <code>async</code> function within the <code>resolve()</code>    method.
-    Also, it's possible to make the <code>resolve()</code> method <code>async</code> as well. This common pattern is called
-    <strong>deffered middleware</strong>.
+    <code>resolve()</code> 메서드 내에서
+    <code>async</code> 함수를 반환하지 못하게하는 금기 사항은 없습니다. 또한
+    <code>resolve()</code> 메서드를
+    <code>async</code> 으로 만들 수도 있습니다. 이 공통 패턴을
+    <strong>deffered middleware</strong> 라고합니다.
   </p>
   <span class="filename">
     {{ 'logger.middleware' | extension: defferedMiddlewareT.isJsActive }}
@@ -130,10 +150,9 @@
   <pre [class.hide]="!defferedMiddlewareT.isJsActive"><code class="language-typescript">{{ defferedMiddlewareJs }}</code></pre>
   <h4>함수형 미들웨어</h4>
   <p>
-    The <code>LoggerMiddleware</code> is quite short. It has no members, no additional methods, no dependencies. Why can't
-    we just use a simple function? It's a good question, cause in fact - we can. This type of the middleware is called <strong>functional
-      middleware
-    </strong>. Let's transform the logger into a function.
+    <code>LoggerMiddleware</code> 는 아주 짧습니다. 멤버가 없으며 추가 방법도없고 종속성도 없습니다. 왜 우리는 단순한 함수를 사용할 수 없습니까? 그것은 좋은 질문입니다. 사실 우리가 할 수 있습니다.
+    이러한 유형의 미들웨어를
+    <strong>기능적 미들웨어</strong> 라고합니다. 로거를 함수로 변환 해 봅시다.
   </p>
   <span class="filename">
     {{ 'logger.middleware' | extension: functionalMiddlewareT.isJsActive }}
@@ -141,7 +160,7 @@
   </span>
   <pre><code class="language-typescript">{{ functionalMiddleware }}</code></pre>
   <p>
-    And use it within the <code>ApplicationModule</code>:
+    <code>ApplicationModule</code> 내에서 사용하십시오.
   </p>
   <span class="filename">
     {{ 'app.module' | extension: applyFunctionalMiddlewareT.isJsActive }}
@@ -150,13 +169,13 @@
   <pre [class.hide]="applyFunctionalMiddlewareT.isJsActive"><code class="language-typescript">{{ applyFunctionalMiddleware }}</code></pre>
   <pre [class.hide]="!applyFunctionalMiddlewareT.isJsActive"><code class="language-typescript">{{ applyFunctionalMiddlewareJs }}</code></pre>
   <blockquote class="info">
-    <strong>Hint</strong> Let's consider using <strong>functional middleware</strong> every time when your middleware doesn't
-    need any dependencies.
+    <strong>힌트</strong> 미들웨어가 의존성을 필요로하지 않을 때마다
+    <strong>기능적 미들웨어를</strong> 사용할 것을 고려해 봅시다.
   </blockquote>
   <h4>다중 미들웨어</h4>
   <p>
-    As mentioned before, in order to bind multiple middleware that are executed sequentially, we can separate them by a comma
-    inside the <code>apply()</code> method.
+    앞서 언급했듯이, 순차적으로 실행되는 여러 미들웨어를 바인딩하기 위해
+    <code>apply()</code> 메소드 내에서 쉼표로 구분할 수 있습니다.
   </p>
   <span class="filename">
     <app-tabs #applyMultipleMiddlewaresT></app-tabs>
@@ -165,8 +184,10 @@
   <pre [class.hide]="!applyMultipleMiddlewaresT.isJsActive"><code class="language-typescript">{{ applyMultipleMiddlewaresJs }}</code></pre>
   <h4>전역 미들웨어</h4>
   <p>
-    In order to tie a middleware to each registered route at once, we can take advantage of <code>use()</code> method that
-    is supplied by the <code>INestApplication</code> instance:
+    등록 된 각 라우트에 미들웨어를 한 번에
+    <code>INestApplication</code> 위해
+    <code>INestApplication</code> 인스턴스가 제공하는
+    <code>use()</code> 메소드를 이용할 수 있습니다.
   </p>
   <pre><code class="language-typescript">
 const app = await NestFactory.create(ApplicationModule);
