@@ -9,7 +9,8 @@
     "build:prod": "ng build --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "update:origin": "git submodule foreach git pull origin master"
   },
   "private": true,
   "dependencies": {
